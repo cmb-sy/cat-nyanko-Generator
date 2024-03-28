@@ -7,18 +7,13 @@ type Props = {
   initialImageUrl: string;
 };
 
-// ページコンポーネント関数にpropsを受け取る引数を追加する
+type Image = {
+  url: string;
+};
+
 const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
   const [imageUrl, setImageUrl] = useState(initialImageUrl); // 初期値を渡す
   const [loading, setLoading] = useState(false); // 初期状態はfalseにしておく
-
-  // マウント時に画像を読み込む宣言
-  // useEffect(() => {
-  //   fetchImage().then((newImage) => {
-  //     setImageUrl(newImage.url); // 画像URLの状態を更新する
-  //     setLoading(false); // ローディング状態を更新する
-  //   });
-  // }, []);
 
   // ボタンをクリックしたときに画像を読み込む処理
   const handleClick = async () => {
@@ -36,6 +31,7 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
       <div className={styles.frame}>
         {loading || <img src={imageUrl} className={styles.img} />}
       </div>
+      <LikeButton />
     </div>
   );
 };
@@ -52,9 +48,18 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   };
 };
 
-type Image = {
-  url: string;
-};
+// いいねボタン
+function LikeButton() {
+  const [count, setCount] = useState(0);
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+  return (
+    <span className={styles.likeButton} onClick={handleClick}>
+      にゃんこに♥を授ける {count}
+    </span>
+  );
+}
 
 const fetchImage = async (): Promise<Image> => {
   const res = await fetch("https://api.thecatapi.com/v1/images/search");
