@@ -1,5 +1,5 @@
 # outline
-I create a nyanko-world using react that allows you to give love to cats.
+I created a nyanko-world using react that allows you to give love to cats.
 I developed for the purpose of studying react.
 
 # demo
