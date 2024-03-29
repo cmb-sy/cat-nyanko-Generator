@@ -7,6 +7,8 @@
   min-height: 100vh;
   flex-direction: column;
   gap: 20px;
+  background: url("../asset/background.png");
+  width: 100%;
 }
 
 .button {
@@ -44,7 +46,7 @@
 }
 
 .frame {
-  width: 600px;
+  width: 700px;
   aspect-ratio: 1/1;
   box-sizing: border-box;
   border-radius: 8px;
@@ -72,12 +74,4 @@
   100% {
     background-position: 0 90px;
   }
-}
-
-.likeButton {
-  background-color: rgb(231, 76, 60);
-  color: white;
-  padding: 0.8rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
 }

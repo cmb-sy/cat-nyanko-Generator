@@ -1,6 +1,8 @@
 import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import styles from "./index.module.css";
+import Header from "../component/Header/Header";
+import LikeButton from "../component/Button/button";
 
 // getServerSidePropsから渡されるpropsの型
 type Props = {
@@ -22,11 +24,14 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
     setImageUrl(newImage.url); // 画像URLの状態を更新する
     setLoading(false); // 読込中フラグを倒す
   };
+
   return (
     // ローディング中でなければ、画像を表示する
+
     <div className={styles.page}>
+      <Header />
       <button onClick={handleClick} className={styles.button}>
-        他のにゃんこも見る
+        にゃんこを見る
       </button>
       <div className={styles.frame}>
         {loading || <img src={imageUrl} className={styles.img} />}
@@ -47,19 +52,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     },
   };
 };
-
-// いいねボタン
-function LikeButton() {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-  return (
-    <span className={styles.likeButton} onClick={handleClick}>
-      にゃんこに♥を授ける {count}
-    </span>
-  );
-}
 
 const fetchImage = async (): Promise<Image> => {
   const res = await fetch("https://api.thecatapi.com/v1/images/search");

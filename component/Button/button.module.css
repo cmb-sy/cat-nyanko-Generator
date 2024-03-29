@@ -1,0 +1,8 @@
+.likeButton {
+  background-color: pink;
+  color: black;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
