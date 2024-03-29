@@ -13,7 +13,7 @@
   list-style: none;
   width: 20px;
   height: 20px;
-  background: url("../../asset/cat.svg");
+  background: url("../../public/cat.svg");
   animation: animate 25s linear infinite;
   bottom: -150px;
 }

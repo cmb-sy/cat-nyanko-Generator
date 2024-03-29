@@ -29,7 +29,11 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
     // ローディング中でなければ、画像を表示する
 
     <div className={styles.page}>
-      <Header />
+      <Header
+        url="/nyankoGratitudeWorld"
+        title="にゃんこワールド🐈"
+        toWorld="🐱 にゃんこ感謝ワールドへ移動する 🐱"
+      />
       <button onClick={handleClick} className={styles.button}>
         にゃんこを見る
       </button>
