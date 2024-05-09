@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import Header from "../component/Header/Header";
 import LikeButton from "../component/Button/button";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 // getServerSidePropsから渡されるpropsの型
 type Props = {
   initialImageUrl: string;
